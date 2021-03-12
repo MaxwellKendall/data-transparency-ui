@@ -1,0 +1,66 @@
+@import "../global/index";
+
+.usda-expandable__container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 rem(10);
+    .usda-expandable__header {
+        display: flex;
+        flex-direction: column;
+        margin-left: rem(15);
+        strong.usda-expandable__subheader {
+            font-size: rem(12);
+            font-weight: $font-semibold;
+            text-transform: uppercase;
+        }
+        h3.usda-expandable__title {
+            margin: 0;
+            font-size: rem(20);
+            font-weight: $font-semibold;
+        }
+    }
+    .tooltip-wrapper {
+        font-size: rem(25);
+    }
+    hr {
+        width: 100%;
+        height: rem(2);
+        background: #494440;
+    }
+    .usda-expandable__context {
+        margin-left: auto;
+    }
+    .usda-expandable__context {
+        font-size: rem(14);
+        strong {
+            font-weight: $font-semibold;
+        }
+    }
+    .usda-expandable__expand-icon {
+        color:  #0074BE;
+    }
+    // Animations:
+    .usda-expandable {
+        visibility: hidden;
+        &.usda-expandable-animating-enter-done,
+        &.usda-expandable-animating-enter-active,
+        &.usda-expandable-animating-exit-active {
+            visibility: visible;
+        }
+        &.usda-expandable-animating-enter {
+            transform: scaleY(0);
+        }
+        &.usda-expandable-animating-enter-active  {
+            transform: scaleY(1);
+            transition: transform 200ms ease-in;
+        }
+        &.usda-expandable-animating-exit-active  {
+            transform: scaleY(0);
+            transition: transform 100ms ease-out;
+        }
+        &.usda-expandable-animating-enter-done {
+            transform: scaleY(1);
+        }
+    }
+}
